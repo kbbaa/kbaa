@@ -98,11 +98,7 @@
                     Objective Summary
                 </h3>
                 <p class="text-gray-400 leading-relaxed text-sm">
-                    The photo below was shared on social media. It clearly depicts a train station.
-Please answer the following questions:
-<br></br>
-a) What is the name of the train station seen in the photo?
-b) What is the name and height of the tallest structure seen in the photo?
+                    Target server "Shadow Realm" was reportedly hosting encrypted communications for an unknown entity. The task was to verify its physical location and identify the administrator through leaked metadata and social engineering.
                 </p>
             </section>
 
@@ -110,7 +106,7 @@ b) What is the name and height of the tallest structure seen in the photo?
             <div class="space-y-12">
                 <div class="border-l-2 border-green-500/20 pl-8 relative">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 bg-green-500 rounded-full border-4 border-[#0a0a0a]"></div>
-                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Step 01: Find the train station shown in the photo</h4>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Step 01: Metadata Scrubbing</h4>
                     <p class="text-gray-400 text-sm leading-loose">
                         Found an image posted on a public forum linked to the domain. EXIF data was stripped, but internal <span class="text-green-500">ICC profiles</span> revealed the original editing software version, which was unique to a specific region's language pack.
                     </p>
@@ -120,9 +116,9 @@ b) What is the name and height of the tallest structure seen in the photo?
                     <div class="absolute -left-[9px] top-0 w-4 h-4 bg-green-500 rounded-full border-4 border-[#0a0a0a]"></div>
                     <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Step 02: Geolocation Triangulation</h4>
                     <p class="text-gray-400 text-sm leading-loose mb-6">
-                        By analyzing background reflections in the target's "setup" photo, I identified the <span class="text-green-500">skyline silhouette</span>. Cross-referencing with 3D building maps, I narrowed the location to a 500m radius in Berlin.
+                        By analyzing background reflections in the target's "setup" photo, I identified the <span class="text-green-500">structural layout</span> of the server room's ventilation system. Cross-referencing with building blueprints, I narrowed the location to a specific industrial sector.
                     </p>
-                    <!-- Added evidence image with a terminal-style frame -->
+                    <!-- Updated to use Flinders Street Station image with direct blob URL -->
                     <div class="relative group max-w-xl">
                         <div class="absolute -inset-0.5 bg-green-500/20 rounded opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 blur"></div>
                         <div class="relative bg-black rounded p-1 hacker-border">
@@ -130,13 +126,39 @@ b) What is the name and height of the tallest structure seen in the photo?
                                 <span class="animate-pulse">●</span> Intel_Capture_001.jpg
                             </div>
                             <img 
-                                src="https://i0.wp.com/gralhix.com/wp-content/uploads/2024/09/osintexercise002.png?resize=720%2C548&ssl=1" 
-                                alt="OSINT Evidence: Train station platform with skyline background" 
+                                src="/images/captura.png" 
+                                alt="OSINT Evidence: Flinders Street Station with Melbourne skyline" 
                                 class="w-full h-auto rounded-sm grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
                             >
                             <div class="mt-2 px-2 py-1 flex justify-between items-center text-[8px] text-gray-500 font-mono uppercase">
-                                <span>COORD: -37.8183, 144.9671</span>
-                                <span>FLINDERS_ST_STATION</span>
+                                <span>COORD: Flinders Street</span>
+                                <span>Melbourne_Station_Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-l-2 border-green-500/20 pl-8 relative">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-green-500 rounded-full border-4 border-[#0a0a0a]"></div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Step 03: Building Identification</h4>
+                    <p class="text-gray-400 text-sm leading-loose mb-6">
+                        Further analysis of nearby infrastructure revealed distinctive architectural features. The twin tower configuration with specific corporate signage allowed for precise location verification through cross-referencing with <span class="text-green-500">satellite imagery</span> and street-level data.
+                    </p>
+                    <!-- Updated to use IBM towers image with direct blob URL -->
+                    <div class="relative group max-w-xl">
+                        <div class="absolute -inset-0.5 bg-green-500/20 rounded opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 blur"></div>
+                        <div class="relative bg-black rounded p-1 hacker-border">
+                            <div class="absolute top-2 right-2 flex gap-1.5 px-2 py-1 bg-black/60 backdrop-blur rounded text-[8px] text-green-500 font-mono uppercase tracking-tighter border border-green-500/30">
+                                <span class="animate-pulse">●</span> Intel_Capture_002.jpg
+                            </div>
+                            <img 
+                                src="/images/image.png" 
+                                alt="OSINT Evidence: Melbourne CBD with IBM and ISAM towers" 
+                                class="w-full h-auto rounded-sm grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
+                            >
+                            <div class="mt-2 px-2 py-1 flex justify-between items-center text-[8px] text-gray-500 font-mono uppercase">
+                                <span>COORD: Melbourne CBD</span>
+                                <span>IBM_ISAM_Towers_Verified</span>
                             </div>
                         </div>
                     </div>
