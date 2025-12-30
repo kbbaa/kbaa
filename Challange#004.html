@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Pulse Extraction - Kbaa OSINT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #22c55e;
+            --background: #0a0a0a;
+            --card: #121212;
+            --foreground: #d1d5db;
+        }
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: 'Geist Mono', monospace;
+            cursor: default;
+        }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 9999;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(34, 197, 94, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            position: fixed;
+            bottom: 100%;
+            animation: scanline 10s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+        .terminal-glow {
+            text-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+        }
+        .hacker-border {
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+    </style>
+</head>
+<body class="selection:bg-green-500 selection:text-black overflow-x-hidden">
+    <div class="scanline"></div>
+
+    <div class="min-h-screen flex flex-col md:flex-row relative">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-64 border-b md:border-b-0 md:border-r border-green-500/20 p-8 flex flex-col shrink-0">
+            <div class="mb-12">
+                <h1 class="text-xl font-bold tracking-tighter text-green-500 animate-pulse terminal-glow">_KBAA_OSINT</h1>
+                <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em] mt-1 font-bold">Status: Decrypting...</p>
+            </div>
+
+            <nav class="flex flex-col gap-6 text-sm">
+                <a href="index.html#home" class="hover:text-green-500 transition-colors flex items-center gap-2 group text-gray-400">
+                    <span class="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity font-bold">{">"}</span> Home
+                </a>
+                <a href="index.html#osint" class="hover:text-green-500 transition-colors flex items-center gap-2 group text-green-500">
+                    <span class="text-green-500 opacity-100 transition-opacity font-bold">{">"}</span> OSINT
+                </a>
+                <a href="index.html#pentesting" class="hover:text-green-500 transition-colors flex items-center gap-2 group text-gray-400">
+                    <span class="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity font-bold">{">"}</span> Pentesting
+                </a>
+                <a href="index.html#about" class="hover:text-green-500 transition-colors flex items-center gap-2 group text-gray-400">
+                    <span class="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity font-bold">{">"}</span> About Me
+                </a>
+            </nav>
+
+            <div class="mt-auto pt-12">
+                <a href="index.html" class="text-[10px] uppercase tracking-widest text-gray-500 hover:text-green-500 transition-colors flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Return to Terminal
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 md:p-16 max-w-4xl">
+            <header class="mb-12">
+                <div class="flex items-center gap-2 text-green-500 mb-4">
+                    <span class="text-xs font-bold tracking-widest uppercase animate-pulse">Extraction In Progress</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white leading-tight">
+                    Neon Pulse <span class="text-green-500 terminal-glow">GEOINT</span> Writeup
+                </h2>
+                <div class="flex items-center gap-4 text-[10px] text-gray-500 font-mono uppercase">
+                    <span>ID: #NP-101</span>
+                    <span>Date: 2025-12-29</span>
+                    <span>Auth: KBAA</span>
+                </div>
+            </header>
+
+            <section class="mb-12 p-6 hacker-border bg-[#111] rounded-lg">
+                <h3 class="text-green-500 text-xs font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Objective Summary
+                </h3>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    A rogue offshore facility was transmitting signals from an unmapped location. The extraction required identifying the exact coordinates using satellite imagery and analysis of environmental lighting conditions visible in leaked CCTV frames.
+                </p>
+            </section>
+
+            <div class="space-y-12">
+                <div class="border-l-2 border-green-500/20 pl-8 relative">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-green-500 rounded-full border-4 border-[#0a0a0a]"></div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Step 01: Light Emission Analysis</h4>
+                    <p class="text-gray-400 text-sm leading-loose">
+                        Analyzed the <span class="text-green-500">flicker frequency</span> of neon signs in a leaked video. The frequency was specific to a power grid standard only used in a few territories, significantly narrowing the search area.
+                    </p>
+                </div>
+
+                <div class="border-l-2 border-green-500/20 pl-8 relative">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-green-500 rounded-full border-4 border-[#0a0a0a]"></div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">Step 02: Synthetic Aperture Radar (SAR) Analysis</h4>
+                    <p class="text-gray-400 text-sm leading-loose">
+                        Used SAR imagery to penetrate persistent cloud cover over the target zone. Identified the unique <span class="text-green-500">structural footprint</span> of the facility's specialized cooling towers.
+                    </p>
+                </div>
+
+                <div class="border-l-2 border-green-500/30 pl-8 relative">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-green-500 rounded-full border-4 border-[#0a0a0a] shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
+                    <h4 class="text-green-500 font-bold mb-4 uppercase text-xs tracking-widest">Extraction Result: SUCCESS</h4>
+                    <div class="bg-green-500/5 p-6 border border-green-500/20 rounded-md">
+                        <p class="text-gray-300 text-sm font-mono leading-relaxed italic">
+                            "Facility located 120km off the coast of the target territory. Operation Neon Pulse has provided the first clear map of the facility's external infrastructure. Intelligence forwarded."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="mt-24 border-t border-green-500/10 pt-8 text-[10px] text-gray-500 uppercase flex justify-between font-mono">
+                <div>Extraction_Status: Completed</div>
+                <div class="opacity-30">END_OF_FILE</div>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
