@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT Challenges by Biel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #22c55e;
+            --background: #0a0a0a;
+            --card: #121212;
+            --foreground: #d1d5db;
+        }
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: 'Geist Mono', monospace;
+            cursor: default;
+        }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 9999;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(34, 197, 94, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            position: fixed;
+            bottom: 100%;
+            animation: scanline 10s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+        .terminal-glow {
+            text-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="selection:bg-green-500 selection:text-black overflow-x-hidden">
+    <div class="scanline"></div>
+
+    <div class="min-h-screen flex flex-col md:flex-row relative">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-64 border-b md:border-b-0 md:border-r border-green-500/20 p-8 flex flex-col shrink-0">
+            <div class="mb-12">
+                <h1 class="text-xl font-bold tracking-tighter text-green-500 animate-pulse terminal-glow">_BIEL_OSINT</h1>
+                <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em] mt-1 font-bold">Status: Decrypting...</p>
+            </div>
+
+            <nav class="flex flex-col gap-6 text-sm">
+                <a href="#home" class="hover:text-green-500 transition-colors flex items-center gap-2 group">
+                    <span class="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity font-bold">{">"}</span> Home
+                </a>
+                <a href="#osint" class="hover:text-green-500 transition-colors flex items-center gap-2 group">
+                    <span class="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity font-bold">{">"}</span> OSINT
+                </a>
+                <a href="#pentesting" class="hover:text-green-500 transition-colors flex items-center gap-2 group">
+                    <span class="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity font-bold">{">"}</span> Pentesting
+                </a>
+                <a href="#about" class="hover:text-green-500 transition-colors flex items-center gap-2 group">
+                    <span class="text-green-500 opacity-0 group-hover:opacity-100 transition-opacity font-bold">{">"}</span> About Me
+                </a>
+            </nav>
+
+            <div class="mt-auto pt-12 space-y-4">
+                <div class="h-px w-full bg-green-500/10"></div>
+                <div class="flex gap-4 opacity-60 hover:opacity-100 transition-opacity">
+                    <a href="#" class="text-gray-400 hover:text-green-500">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-green-500">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="home" class="flex-1 p-8 md:p-16 max-w-5xl">
+            <header class="mb-16">
+                <div class="flex items-center gap-2 text-green-500 mb-4">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <span class="text-xs font-bold tracking-widest uppercase">Verified Access</span>
+                </div>
+                <h2 class="text-4xl md:text-7xl font-bold mb-6 tracking-tight leading-none text-white">
+                    OSINT Challenges <span class="text-green-500 terminal-glow">by Biel</span>
+                </h2>
+                <p class="text-lg text-gray-400 max-w-2xl leading-relaxed border-l-2 border-green-500/20 pl-6">
+                    Cybersecurity researcher specializing in digital footprint analysis and offensive security. I translate complex data points into actionable intelligence.
+                </p>
+            </header>
+
+            <!-- Terminal Mockup -->
+            <div class="mb-16 border border-green-500/20 bg-[#111] rounded-t-lg overflow-hidden shadow-2xl">
+                <div class="bg-green-500/10 px-4 py-2 flex items-center gap-2 border-b border-green-500/20">
+                    <div class="flex gap-1.5">
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-500/30"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/30"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-green-500/30"></div>
+                    </div>
+                    <span class="text-[10px] text-gray-500 font-mono ml-2 uppercase">biel@osint: ~/challenges</span>
+                </div>
+                <div class="p-6 font-mono text-xs space-y-2">
+                    <p class="text-green-500"><span class="text-gray-500">$</span> whoami</p>
+                    <p class="text-white mb-4">{">"} Biel. OSINT Specialist. CTF Player. Security Researcher.</p>
+                    <p class="text-green-500"><span class="text-gray-500">$</span> ls -la ./writeups</p>
+                    <p class="text-gray-400 leading-loose">
+                        total 42<br>
+                        drwxr-xr-x 2 biel users 4096 Dec 30 14:22 .<br>
+                        -rw-r--r-- 1 biel users 8192 Dec 15 09:11 shadow_realm.md<br>
+                        -rw-r--r-- 1 biel users 4096 Nov 20 11:05 broken_wing.md
+                    </p>
+                    <div class="flex items-center gap-1">
+                        <span class="text-gray-500">$</span>
+                        <span class="w-2 h-4 bg-green-500 animate-pulse"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenge Section -->
+            <section id="osint">
+                <div class="flex items-center justify-between mb-8 border-b border-green-500/10 pb-4">
+                    <h3 class="text-sm uppercase tracking-widest text-green-500 font-bold flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        Available Intel
+                    </h3>
+                    <span class="text-[10px] text-gray-500 uppercase flex items-center gap-1">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                        Encrypted Logs
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-green-500/10 border border-green-500/10 overflow-hidden">
+                    <!-- Writeup 1 -->
+                    <article class="bg-[#0a0a0a] p-8 hover:bg-[#111] transition-all group relative border border-green-500/5">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-[10px] text-green-500 bg-green-500/10 px-3 py-1 font-bold border border-green-500/20">OSINT</span>
+                            <span class="text-[10px] text-gray-500 font-mono">2025-12-15</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4 group-hover:text-green-500 transition-colors tracking-tight text-white">Shadow Realm OSINT</h4>
+                        <p class="text-sm text-gray-400 mb-8 leading-relaxed">Deep dive into locating a hidden server using geolocation and digital footprints.</p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="text-[10px] text-gray-500">#Geo-location</span>
+                            <span class="text-[10px] text-gray-500">#Metadata</span>
+                            <span class="text-[10px] text-gray-500">#SocialEngineering</span>
+                        </div>
+                        <a href="#" class="w-full py-3 border border-green-500/20 text-[10px] uppercase tracking-[0.2em] font-bold flex items-center justify-center gap-2 hover:bg-green-500 hover:text-black transition-all">
+                            Initiate Extraction 
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </article>
+
+                    <!-- Writeup 2 -->
+                    <article class="bg-[#0a0a0a] p-8 hover:bg-[#111] transition-all group relative border border-green-500/5">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="text-[10px] text-green-500 bg-green-500/10 px-3 py-1 font-bold border border-green-500/20">OSINT</span>
+                            <span class="text-[10px] text-gray-500 font-mono">2025-11-20</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4 group-hover:text-green-500 transition-colors tracking-tight text-white">Operation Broken Wing</h4>
+                        <p class="text-sm text-gray-400 mb-8 leading-relaxed">Tracing a leak back to an anonymous forum post through blockchain forensics.</p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="text-[10px] text-gray-500">#Crypto</span>
+                            <span class="text-[10px] text-gray-500">#DigitalForensics</span>
+                            <span class="text-[10px] text-gray-500">#OSINT</span>
+                        </div>
+                        <a href="#" class="w-full py-3 border border-green-500/20 text-[10px] uppercase tracking-[0.2em] font-bold flex items-center justify-center gap-2 hover:bg-green-500 hover:text-black transition-all">
+                            Initiate Extraction 
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="mt-24 border-t border-green-500/10 pt-8 text-[10px] text-gray-500 uppercase flex flex-wrap gap-x-12 gap-y-4 font-mono">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Connection: Stable
+                </div>
+                <div>Auth_Level: Root</div>
+                <div>Uptime: 231:42:09</div>
+                <div class="ml-auto opacity-30">© 2025 BIEL.OSINT // BY_ORDER_OF_THE_WATCH</div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple terminal typing effect simulation
+        console.log("%c[v0] System Initialized: Hacker Aesthetic Active", "color: #22c55e; font-weight: bold;");
+    </script>
+</body>
+</html>
